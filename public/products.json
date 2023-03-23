@@ -1,0 +1,44 @@
+[
+    {
+        "id" : "0",
+        "product" : "Bomber jacket",
+        "price" : "0.0037", 
+        "image" : "images/Bomber.jpeg" 
+    },
+
+    {
+        "id" : "1",
+        "product" : "Crewneck sweatshirt",
+        "price" : "0.0029",
+        "image" : "images/sweatshirt.jpeg"
+    },
+
+    {
+        "id" : "2",
+        "product" : "Denim jacket",
+        "price" : "0.0031",
+        "image" : "images/denim.png"
+    },
+
+    {
+        "id" : "3",
+        "product" : "Joggers",
+        "price" : "0.0034",
+        "image" : "images/joggers.png"
+    },
+
+    {
+        "id" : "4",
+        "product" : "Oversized Tee",
+        "price" : "0.0014",
+        "image" : "images/oversized.jpeg"
+        
+    },
+
+    {
+        "id" : "5",
+        "product" : "Fleece",
+        "price" : "0.0022",
+        "image" : "images/fleece.jpeg"
+    }
+]

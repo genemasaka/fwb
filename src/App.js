@@ -1,10 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
 import { ethers } from 'ethers';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import $ from 'jquery';
+import { Modal, Button } from 'react-bootstrap';
 
 function App() {
   const [address, setAddress] = useState(null);
+  const [show, setShow] = useState(false);
+  const [products, setProducts] = useState([]);
+  const [productName, setProductName] = useState([]);
+  const [price, setPrice] = useState([]);
+  const handleClose = () => setShow(false);
+
   const provider = new ethers.BrowserProvider(window.ethereum);
 
   const handleLogin = async () => {
@@ -18,60 +26,77 @@ function App() {
       alert("Please install Metamask🦊")
     }
   }
-  return (
-    
-<>
- <nav class="navbar bg-body-tertiary" >
-  <div class="container-fluid" >
-    
-      <a class="navbar-brand">flight with birds</a>
-      <button id="connect" class="btn btn-outline-success" onClick={handleLogin}>Connect Wallet</button>
-      <button id="addy" class=" btn btn-outline-success" style={{'visibility' : 'hidden',}}>{address}</button>
 
-  </div>
-</nav>
-<div id="catalogue"  style={{'visibility' : 'hidden'}}>
-<div class="row row-cols-1 row-cols-md-2 g-2 ">
-  <div class="col">
-    <div class="card w-50">
-      <img src="..." class="card-img-top" alt="..." />
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card w-50">
-      <img src="..." class="card-img-top" alt="..."/>
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card w-50">
-      <img src="..." class="card-img-top" alt="..."/>
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card w-50">
-      <img src="..." class="card-img-top" alt="..."/>
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-   </>
+  const getProducts = () => {
+    const catalogue = document.getElementById('catalogue');
+    fetch('./products.json', {
+      headers : {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    }).then(function(response){
+      return response.json();
+    }).then(function(products){
+      setProducts((prevProducts) => [...prevProducts, ...products])
+      console.log(products)
+      products.forEach((item)=> {
+        const {id, product, price, image} = item;
+       
+        const productCard = document.createElement('div')
+        productCard.innerHTML = `
+          <div class="product card mb-2" style="width: 18rem;" >
+            <img src="${image}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">${product}</h5>
+              <p class="card-text">${price}ETH</p>
+            </div>
+          </div>
+        `
+        let selectedCard = document.querySelectorAll('.product');
+        [...selectedCard].forEach((card) => {
+          card.addEventListener("click", (e) => {
+        
+            setShow(true)
+
+          })
+        })
+        catalogue.appendChild(productCard);
+      })
+    });
+  } 
+
+  useEffect(() => {
+    getProducts();
+  }, []);
+
+  return (
+    <>
+      <nav class="navbar bg-body-tertiary" >
+        <div class="container-fluid" >
+          <a class="navbar-brand">flight with birds</a>
+          <button id="connect" className="btn btn-outline-success" onClick={handleLogin}>Connect Wallet</button>
+          <button id="addy" className=" btn btn-outline-success" style={{'visibility' : 'hidden',}}>{address}</button>
+        </div>
+      </nav>
+      <div id="catalogue" className="mt-3 d-flex flex-lg-wrap justify-content-lg-around"></div>
+   
+        <Modal show={show} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title id="modal-title">{productName}</Modal.Title>
+          </Modal.Header>
+          <Modal.Body id="modal_body">
+            {price}
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="dark" id="purchase-btn">
+              Purchase
+            </Button>
+          </Modal.Footer>
+        </Modal>
+      
+    </>
   );
 }
 
 export default App;
+
