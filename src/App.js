@@ -9,8 +9,7 @@ function App() {
   const [address, setAddress] = useState(null);
   const [show, setShow] = useState(false);
   const [products, setProducts] = useState([]);
-  const [productName, setProductName] = useState([]);
-  const [price, setPrice] = useState([]);
+  const [modalProduct, setModalProduct] = useState(null);
   const handleClose = () => setShow(false);
 
   const provider = new ethers.BrowserProvider(window.ethereum);
@@ -52,14 +51,10 @@ function App() {
             </div>
           </div>
         `
-        let selectedCard = document.querySelectorAll('.product');
-        [...selectedCard].forEach((card) => {
-          card.addEventListener("click", (e) => {
-        
-            setShow(true)
-
-          })
-        })
+        productCard.addEventListener("click", () => {
+            setShow(true);
+            setModalProduct(item);
+        });
         catalogue.appendChild(productCard);
       })
     });
@@ -78,14 +73,15 @@ function App() {
           <button id="addy" className=" btn btn-outline-success" style={{'visibility' : 'hidden',}}>{address}</button>
         </div>
       </nav>
-      <div id="catalogue" className="mt-3 d-flex flex-lg-wrap justify-content-lg-around"></div>
+      <div id="catalogue" className="mt-5 d-flex flex-lg-wrap justify-content-lg-around"></div>
    
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
-            <Modal.Title id="modal-title">{productName}</Modal.Title>
+          <Modal.Title>{modalProduct ? modalProduct.product : ''}</Modal.Title>
           </Modal.Header>
-          <Modal.Body id="modal_body">
-            {price}
+          <Modal.Body id="modal_body" className="text-center">
+            <img src={ modalProduct ? modalProduct.image : ''} width="400px" height="400px" />
+            <p className="mt-2">{modalProduct ? modalProduct.price : ''}ETH</p>
           </Modal.Body>
           <Modal.Footer>
             <Button variant="dark" id="purchase-btn">
