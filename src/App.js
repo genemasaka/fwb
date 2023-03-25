@@ -80,10 +80,10 @@ function App() {
           <Modal.Title>{modalProduct ? modalProduct.product : ''}</Modal.Title>
           </Modal.Header>
           <Modal.Body id="modal_body" className="text-center">
-            <img src={ modalProduct ? modalProduct.image : ''} width="400px" height="400px" />
-            <p className="mt-2">{modalProduct ? modalProduct.price : ''}ETH</p>
+            <img src={ modalProduct ? modalProduct.image : ''} width="400px" height="400px" style={{'borderRadius': '5px'}}/>
           </Modal.Body>
           <Modal.Footer>
+            <p className="mt-2">{modalProduct ? modalProduct.price : ''}ETH</p>
             <Button variant="dark" id="purchase-btn">
               Purchase
             </Button>
