@@ -10,11 +10,24 @@
   font-family: Brachetto !important;
   font-size: xx-large !important;
   color:  white !important;
+  margin-left: 25px !important;
 }
 .btn {
   color: white !important;
   outline-color: white !important;
 }
-.card {
+/*.outer {
+  position: relative;
+}
+.inner {
+position: absolute;
+}*/
+#connect {
+float: inline-end;
 
+}
+
+#addy {
+  float: inline-end;
+  
 }

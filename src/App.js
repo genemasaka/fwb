@@ -68,9 +68,11 @@ function App() {
     <>
       <nav class="navbar bg-body-tertiary" >
         <div class="container-fluid" >
-          <h2 class="navbar-brand primary">flightwithbirds</h2>
-          <button id="connect" className="float-lg-end btn" onClick={handleLogin}>Connect Wallet</button>
-          <button id="addy" className="float-lg-end btn" style={{'visibility' : 'hidden',}}>{address}</button>
+          <h2 class="navbar-brand primary ">flightwithbirds</h2>
+          <div class="outer">
+          <button id="connect" className="inner float-lg-end btn" onClick={handleLogin}>Connect Wallet</button>
+          <button id="addy" className="inner float-lg-end btn" style={{'visibility' : 'hidden',}}>{address}</button>
+          </div>
         </div>
       </nav>
       <div id="catalogue" className="mt-5 d-lg-flex flex-lg-wrap justify-content-lg-around"></div>
