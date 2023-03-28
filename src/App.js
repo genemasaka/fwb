@@ -43,7 +43,7 @@ function App() {
        
         const productCard = document.createElement('div')
         productCard.innerHTML = `
-          <div class="product card mb-2" style="width: 18rem;" >
+          <div class="product card mb-2 text-white bg-dark" style="width: 18rem; height: 25rem !important;" >
             <img src="${image}" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">${product}</h5>
@@ -68,19 +68,19 @@ function App() {
     <>
       <nav class="navbar bg-body-tertiary" >
         <div class="container-fluid" >
-          <a class="navbar-brand">flight with birds</a>
-          <button id="connect" className="btn btn-outline-success" onClick={handleLogin}>Connect Wallet</button>
-          <button id="addy" className=" btn btn-outline-success" style={{'visibility' : 'hidden',}}>{address}</button>
+          <h2 class="navbar-brand primary">flightwithbirds</h2>
+          <button id="connect" className="float-lg-end btn" onClick={handleLogin}>Connect Wallet</button>
+          <button id="addy" className="float-lg-end btn" style={{'visibility' : 'hidden',}}>{address}</button>
         </div>
       </nav>
-      <div id="catalogue" className="mt-5 d-flex flex-lg-wrap justify-content-lg-around"></div>
+      <div id="catalogue" className="mt-5 d-lg-flex flex-lg-wrap justify-content-lg-around"></div>
    
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
           <Modal.Title>{modalProduct ? modalProduct.product : ''}</Modal.Title>
           </Modal.Header>
           <Modal.Body id="modal_body" className="text-center">
-            <img src={ modalProduct ? modalProduct.image : ''} width="400px" height="400px" style={{'borderRadius': '5px'}}/>
+            <img src={ modalProduct ? modalProduct.image : ''} width="400px" height="500px" style={{'borderRadius': '5px'}}/>
           </Modal.Body>
           <Modal.Footer>
             <p className="mt-2">{modalProduct ? modalProduct.price : ''}ETH</p>

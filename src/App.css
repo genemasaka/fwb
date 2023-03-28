@@ -1,0 +1,19 @@
+@font-face {
+  font-family: 'Brachetto';
+  src: local('Brachetto'), url(../public/Brachetto.ttf) format('ttf');
+}
+#root {
+  background-color: black !important;
+}
+.navbar-brand {
+  font-family: Brachetto !important;
+  font-size: xx-large !important;
+  color:  white !important;
+}
+.btn {
+  color: white !important;
+  outline-color: white !important;
+}
+.card {
+  
+}
