@@ -4,6 +4,7 @@
 }
 #root {
   background-color: black !important;
+  height: auto !important;
 }
 .navbar-brand {
   font-family: Brachetto !important;
@@ -15,5 +16,5 @@
   outline-color: white !important;
 }
 .card {
-  
+
 }

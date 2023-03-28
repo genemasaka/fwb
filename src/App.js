@@ -43,9 +43,9 @@ function App() {
        
         const productCard = document.createElement('div')
         productCard.innerHTML = `
-          <div class="product card mb-2 text-white bg-dark" style="width: 18rem; height: 25rem !important;" >
+          <div class="product card mb-2 text-white bg-dark" style="width: 18rem;" >
             <img src="${image}" class="card-img-top" alt="...">
-            <div class="card-body">
+            <div class="card-body pb-5">
               <h5 class="card-title">${product}</h5>
               <p class="card-text">${price}ETH</p>
             </div>
