@@ -4,7 +4,7 @@ import { ethers } from 'ethers';
 import { useState, useEffect } from 'react';
 import $ from 'jquery';
 import { Modal, Button } from 'react-bootstrap';
-
+import abi from './fwbContract.json';
 function App() {
   const [address, setAddress] = useState(null);
   const [show, setShow] = useState(false);
@@ -14,7 +14,7 @@ function App() {
 
   const provider = new ethers.BrowserProvider(window.ethereum);
   const fwbContractAddress = '0xF998F82E58406Bf7153eBbFDB3c0048F89651B8e';
-  
+
   const handleLogin = async () => {
     if (window.ethereum !== 'null') {
       const accounts = await provider.send("eth_requestAccounts", [])
