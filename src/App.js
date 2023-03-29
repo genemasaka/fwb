@@ -13,7 +13,8 @@ function App() {
   const handleClose = () => setShow(false);
 
   const provider = new ethers.BrowserProvider(window.ethereum);
-
+  const fwbContractAddress = '0xF998F82E58406Bf7153eBbFDB3c0048F89651B8e';
+  
   const handleLogin = async () => {
     if (window.ethereum !== 'null') {
       const accounts = await provider.send("eth_requestAccounts", [])

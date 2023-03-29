@@ -40,5 +40,19 @@
         "product" : "Fleece",
         "price" : "0.0022",
         "image" : "images/fleece.jpeg"
-    }
+    },
+
+    {
+        "id": "6",
+        "product": "Hoodie",
+        "price": "0.0036",
+        "image": "images/hoodie.png"
+    },
+
+    {
+        "id": "7",
+        "product": "Vest",
+        "price": "0.0020",
+        "image": "images/vest.jpg"
+    }    
 ]
