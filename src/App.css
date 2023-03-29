@@ -5,6 +5,7 @@
 #root {
   background-color: black !important;
   height: auto !important;
+  padding-bottom: 50px;
 }
 .navbar-brand {
   font-family: Brachetto !important;

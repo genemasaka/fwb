@@ -10,6 +10,8 @@ function App() {
   const [show, setShow] = useState(false);
   const [products, setProducts] = useState([]);
   const [modalProduct, setModalProduct] = useState(null);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+
   const handleClose = () => setShow(false);
 
   const provider = new ethers.BrowserProvider(window.ethereum);
@@ -55,12 +57,34 @@ function App() {
         productCard.addEventListener("click", () => {
             setShow(true);
             setModalProduct(item);
+            setSelectedProduct(id);
         });
         catalogue.appendChild(productCard);
       })
     });
   } 
-
+  const handlePurchase = async() => {
+    if (!selectedProduct) {
+      return;
+    }
+  
+    const signer = await provider.getSigner(address);
+    const fwbContract = new ethers.Contract(fwbContractAddress, abi, signer);
+    const product = products.find(item => item.id === selectedProduct);
+  
+    try {
+      const tx = await fwbContract.buyProduct(parseInt(selectedProduct));
+      await tx.wait();
+  
+      // Update the UI to indicate that the purchase was successful
+      alert(`You have purchased ${product.product} for ${product.price}ETH`);
+      handleClose();
+    } catch (error) {
+      console.error(error);
+      alert(`Failed to purchase ${product.product}: ${error.message}`);
+    }
+  }
+  
   useEffect(() => {
     getProducts();
   }, []);
@@ -87,7 +111,7 @@ function App() {
           </Modal.Body>
           <Modal.Footer>
             <p className="mt-2">{modalProduct ? modalProduct.price : ''}ETH</p>
-            <Button variant="dark" id="purchase-btn">
+            <Button variant="dark" id="purchase-btn" onClick={handlePurchase}>
               Purchase
             </Button>
           </Modal.Footer>
