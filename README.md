@@ -24,7 +24,7 @@ The main components of the application include:
 - A function for fetching and displaying apparel products from a local JSON file
 - A modal component for displaying product details and handling the purchase process
 
-The purchase process involves connecting to the Ethereum network through Metamask, using `ethers.js` to interact with a smart contract at a specified address, and sending a transaction to purchase the selected product. `SepoliaEth` is required to make the transacton. You can get some free Sepolia testnet Eth at (Sepolia Faucet) [https://sepoliafaucet.com/]. The UI is updated to indicate the success or failure of the purchase process.
+The purchase process involves connecting to the Ethereum network through Metamask, using `ethers.js` to interact with a smart contract at a specified address, and sending a transaction to purchase the selected product. `SepoliaEth` is required to make the transacton. You can get some free Sepolia testnet Eth at [Sepolia Faucet] (https://sepoliafaucet.com/). The UI is updated to indicate the success or failure of the purchase process.
 
 ## Contributing
 
