@@ -1,10 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
 import { ethers } from 'ethers';
 import { useState, useEffect } from 'react';
 import $ from 'jquery';
 import { Modal, Button } from 'react-bootstrap';
 import abi from './fwbContract.json';
+
 function App() {
   const [address, setAddress] = useState(null);
   const [show, setShow] = useState(false);
@@ -91,15 +91,16 @@ function App() {
 
   return (
     <>
-      <nav class="navbar bg-body-tertiary" >
-        <div class="container-fluid" >
-          <h2 class="navbar-brand primary ">flightwithbirds</h2>
-          <div class="outer">
-          <button id="connect" className="inner float-lg-end btn" onClick={handleLogin}>Connect Wallet</button>
-          <button id="addy" className="inner float-lg-end btn" style={{'visibility' : 'hidden',}}>{address}</button>
-          </div>
-        </div>
-      </nav>
+<nav class="navbar bg-body-tertiary" >
+  <div class="container-fluid" >
+    <h2 class="navbar-brand primary ">flightwithbirds</h2>
+    <div class="outer">
+      <button id="connect" class="inner btn" style={{'display': address ? 'none' : 'block'}} onClick={handleLogin}>Connect Wallet</button>
+      <button id="addy" class="inner btn" style={{'visibility' : 'hidden',}}>{address}</button>
+    </div>
+  </div>
+</nav>
+
       <div id="catalogue" className="mt-5 d-lg-flex flex-lg-wrap justify-content-lg-around"></div>
    
         <Modal show={show} onHide={handleClose}>
@@ -107,7 +108,7 @@ function App() {
           <Modal.Title>{modalProduct ? modalProduct.product : ''}</Modal.Title>
           </Modal.Header>
           <Modal.Body id="modal_body" className="text-center">
-            <img src={ modalProduct ? modalProduct.image : ''} width="400px" height="500px" style={{'borderRadius': '5px'}}/>
+            <img src={ modalProduct ? modalProduct.image : ''} alt="product" width="400px" height="500px" style={{'borderRadius': '5px'}}/>
           </Modal.Body>
           <Modal.Footer>
             <p className="mt-2">{modalProduct ? modalProduct.price : ''}ETH</p>

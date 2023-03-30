@@ -17,18 +17,8 @@
   color: white !important;
   outline-color: white !important;
 }
-/*.outer {
-  position: relative;
-}
-.inner {
-position: absolute;
-}*/
+
 #connect {
-float: inline-end;
-
-}
-
-#addy {
+  display: block;
   float: inline-end;
-  
 }
