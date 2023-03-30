@@ -2,7 +2,8 @@
 
 # FlightWithBirds DApp
 
-This is a decentralized application (DApp) that allows users to purchase apparel using Ethereum cryptocurrency. The application uses the Metamask wallet to connect to the Ethereum network and the ethers.js library to interact with smart contracts.
+This is a decentralized application (DApp) that allows users to purchase apparel using testnet cryptocurrency. The application uses the Metamask wallet to connect to the Ethereum network and the ethers.js library to interact with smart contracts.
+Visit the app at [fwb](flightwithbirds.vercel.app)
 
 ## Installation and Usage
 
@@ -15,7 +16,7 @@ This is a decentralized application (DApp) that allows users to purchase apparel
 
 ## Code Overview
 
-The application is built using React.js and consists of a single `App.js` file. The file imports various dependencies, including `ethers.js`, `react-bootstrap`, and a contract ABI file.
+The application is built using React.js and consists of an `App.js` file. The file imports various dependencies, including `ethers.js`, `react-bootstrap`, and a contract ABI file.
 
 The main components of the application include:
 
