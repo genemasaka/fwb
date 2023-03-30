@@ -3,7 +3,7 @@
 # FlightWithBirds DApp
 
 This is a decentralized application (DApp) that allows users to purchase apparel using testnet cryptocurrency. The application uses the Metamask wallet to connect to the Ethereum network and the ethers.js library to interact with smart contracts.
-Visit the app at [fwb](flightwithbirds.vercel.app)
+Visit the app at [fwb](https://flightwithbirds.vercel.app/)
 
 ## Installation and Usage
 
