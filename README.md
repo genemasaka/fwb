@@ -10,7 +10,7 @@ This is a decentralized application (DApp) that allows users to purchase apparel
 2. Install dependencies with `npm install`
 3. Start the application with `npm start`
 4. Connect your Metamask wallet to the application by clicking the "Connect Wallet" button
-5. Browse the bird-related products and click on a product to view more details
+5. Browse the apparel catalogue and click on a product to view more details
 6. Purchase a product by clicking the "Purchase" button in the product details modal
 
 ## Code Overview
@@ -24,7 +24,7 @@ The main components of the application include:
 - A function for fetching and displaying apparel products from a local JSON file
 - A modal component for displaying product details and handling the purchase process
 
-The purchase process involves connecting to the Ethereum network through Metamask, using `ethers.js` to interact with a smart contract at a specified address, and sending a transaction to purchase the selected product. `SepoliaEth` is required to make the transacton. You can get some free Sepolia testnet Eth at [Sepolia Faucet] (https://sepoliafaucet.com/). The UI is updated to indicate the success or failure of the purchase process.
+The purchase process involves connecting to the Ethereum network through Metamask, using `ethers.js` to interact with a smart contract at a specified address, and sending a transaction to purchase the selected product. `SepoliaEth` is required to make the transacton. You can get some free Sepolia testnet Eth at [Sepolia Faucet](https://sepoliafaucet.com/). The UI is updated to indicate the success or failure of the purchase process.
 
 ## Contributing
 
